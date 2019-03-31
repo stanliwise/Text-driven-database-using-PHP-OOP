@@ -41,7 +41,7 @@
             }
 
             if(!Validator::email($email)){
-                $this->error = 'invalid email address';
+                $this->error = ' insert a valid email address';
                 return false;
             }
 
