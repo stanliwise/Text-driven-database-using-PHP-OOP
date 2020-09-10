@@ -3,18 +3,25 @@
 This code helps you  to make a simple database using .txt file and provide you will all necessary functionalities to create, modify a database
 
 To make use of this simple file;
-enusre your have .src folder in the same folder as Database.php
-simply include 'Database.php' into your script;
-Also ensure you create a valid .txt file in your script for data storage e.g 'database.txt';
-To make use of this script after doing the above simply call the Database bundle
+enusre your have "src" folder
+simply include 'src/DBFactory.php' into your script;
+Also ensure you create a valid folder which would represent your Database Repo,
+For example a folder 'Passport' would represent the name of a database
+To get the Database instance use the database facade
 
-    $database = new Database('database.txt');
+    ```php
+    $database = DBFactory::get('Passport'); //Case is insensitive
+    ```
 
-Notice that 'database.txt' was simply my own created text, ensure that it the correct directory for your database is correct.
 
-1. To add new user
+Note: Set the complete path of directory from Config.php, default value is __DIR__ constant. This means your complete your path for DBFactory::get() will be __DIR__ . 'Passport'.
+Alternative you can fill in the complete path of the folder.
 
-    $database->addUser('name', 'password', 'email');
+# METHOD DATABASE OBJECT
+1. To create new table in the database, use
+    ```php
+    $database->new_table('unique_table_name', $columns[], 'unique_column');
+    ```
 
 2. To delete a user
 
