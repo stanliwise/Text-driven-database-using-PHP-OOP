@@ -10,7 +10,8 @@ For example a folder 'StanDatabase' would represent the name of a database
 To get the Database instance use the database facade
 
     ```php
-    $database = DBFactory::get('StanDatabase'); //Case is insensitive
+    <?php
+        $database = DBFactory::get('StanDatabase'); //Case is insensitive
     ```
 
 **Note:** Set the complete path of directory from Config.php, default value is __DIR__ constant. This means your complete your path for DBFactory::get() will be __DIR__ . 'Passport'.
@@ -25,43 +26,46 @@ Example:
 
     This means if you refer to your database e.g 'StanDatabase'
     It means you complete path would be 
+
     ```php
         $path_to_database_folder . '/StanDatabase'
     ```
 
 # METHOD DATABASE OBJECT
 1. To create new table in the database, use
+
     ```php
-    $database->new_table('unique_table_name', $columns[], 'unique_column');
+        $database->new_table('unique_table_name', $columns[], 'unique_column');
     ```
 
-2. To delete a user
+2. To delete a table from your database
 
-    $database->removeUser('username');
+    ```php
+        $database->delete_table($table_name);
+    ```
 
     The code return true if succesful and returns false if unsuccesful
 
-3. To check if a user is registered
+3. To get a Table instance
 
-    $user = $database->login('username', 'password');
+    ```php
+    $user = $database->get_table($table_name);
+    ```
 
-4. To find a user (it can be done in three ways)
-
-    $user = $database->getUserById(1); //this is if you know a user id
-
-            or
-
-    $user = $database->getUserByUsername('username'); //just provide the user details
-            or
-
-    $user = $database->getUserByEmail('email'); //provide email address
+4. To see the current database folder/path
+    ```php
+        //this is if you know a user id
+        $user = $database->getPath(); 
+    ```
 
 5. For 3 to 4, if retrieval was succesful the you can get user data from the variable
 
-        $user->getId(); //returns a user id
-        $user->getPassword(); //returns a user password
-        $user->getEmail(); //returns a user email
-        $user->getUsername(); //returns a user username;
+        ```php
+            $user->getId(); //returns a user id
+            $user->getPassword(); //returns a user password
+            $user->getEmail(); //returns a user email
+            $user->getUsername(); //returns a user username;
+        ```
 
         b. To change a user password
 
