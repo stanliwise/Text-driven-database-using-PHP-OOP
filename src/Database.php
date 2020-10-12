@@ -15,10 +15,16 @@
                 throw new Exception('Database' . $folder_path . 'does not exist');
         }
 
+        /**
+         * get complete path to the database
+         */
         public function path(){
             return $this->full_path;
         }
 
+        /**
+         * Create a new table
+         */
         public function new_table($name, $field = [], $unique_key){
             if(count($field) < 1)
                 throw new Exception("can't create Table with empty field");
@@ -53,6 +59,9 @@
             return new Table($this->full_path($name));
         }
 
+        /**
+         * Delete a table
+         */
         public function delete_table($name){
             $this->ensure_file_exist($name);
 
@@ -60,16 +69,28 @@
             return true;
         }
 
+        /**
+         * rename a table
+         * function not available now
+         */
         public function rename_table($new_name){
             $this->ensure_file_exist($new_name);
 
             return false;
         }
 
+        /**
+         * Get a table from a database
+         * Legacy function
+         */
         public function get($name){
             $this->ensure_file_exist($name);
 
             return new Table($this->full_path($name));
+        }
+
+        public function get_table($name){
+            return $this->get($name);
         }
 
         protected function ensure_file_exist($name){
