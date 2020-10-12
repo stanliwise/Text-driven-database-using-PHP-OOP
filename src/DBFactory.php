@@ -14,6 +14,10 @@
 
         }
 
+        public static function set_global_path($path){
+            self::$repo_path = $path . "/";
+        }
+
         public static function get($name){
             if(isset(self::$dbs[$name]))
                 return self::$dbs[$name];

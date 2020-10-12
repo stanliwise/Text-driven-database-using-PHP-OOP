@@ -2,20 +2,32 @@
 
 This code helps you  to make a simple database using .txt file and provide you will all necessary functionalities to create, modify a database
 
-To make use of this simple file;
+To make use of this simple PHP Functionalities;
 enusre your have "src" folder
 simply include 'src/DBFactory.php' into your script;
 Also ensure you create a valid folder which would represent your Database Repo,
-For example a folder 'Passport' would represent the name of a database
+For example a folder 'StanDatabase' would represent the name of a database
 To get the Database instance use the database facade
 
     ```php
-    $database = DBFactory::get('Passport'); //Case is insensitive
+    $database = DBFactory::get('StanDatabase'); //Case is insensitive
     ```
 
+**Note:** Set the complete path of directory from Config.php, default value is __DIR__ constant. This means your complete your path for DBFactory::get() will be __DIR__ . 'Passport'.
+Alternative you set global path to where your database folder would be found.
 
-Note: Set the complete path of directory from Config.php, default value is __DIR__ constant. This means your complete your path for DBFactory::get() will be __DIR__ . 'Passport'.
-Alternative you can fill in the complete path of the folder.
+Example:
+
+    ```php
+        //this set path to find your database folders
+        DBFactory::set_gloabal_path($path_to_database_folder); 
+    ```
+
+    This means if you refer to your database e.g 'StanDatabase'
+    It means you complete path would be 
+    ```php
+        $path_to_database_folder . '/StanDatabase'
+    ```
 
 # METHOD DATABASE OBJECT
 1. To create new table in the database, use
