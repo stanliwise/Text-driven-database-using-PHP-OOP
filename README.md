@@ -10,12 +10,13 @@ For example a folder 'StanDatabase' would represent the name of a database
 To get the Database instance use the database facade
 
     ```php
-    <?php
-        $database = DBFactory::get('StanDatabase'); //Case is insensitive
+    //Case is insensitive
+    $database = DBFactory::get('StanDatabase'); 
     ```
 
-**Note:** Set the complete path of directory from Config.php, default value is __DIR__ constant. This means your complete your path for DBFactory::get() will be __DIR__ . 'Passport'.
-Alternative you set global path to where your database folder would be found.
+**Note:** Set the complete path of directory from Config.php, default value is `__DIR__` constant. This means your complete your path for DBFactory::get() will be `__DIR__ . 'StanDatabase'`
+
+Alternatively can you set global path to where your database folder would be found.
 
 Example:
 
@@ -24,8 +25,7 @@ Example:
         DBFactory::set_gloabal_path($path_to_database_folder); 
     ```
 
-    This means if you refer to your database e.g 'StanDatabase'
-    It means your complete path would be 
+    This means if you refer to your database e.g 'StanDatabase' It means your complete path would be 
 
     ```php
         $path_to_database_folder . '/StanDatabase'
