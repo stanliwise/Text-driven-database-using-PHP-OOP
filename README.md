@@ -25,7 +25,7 @@ Example:
     ```
 
     This means if you refer to your database e.g 'StanDatabase'
-    It means you complete path would be 
+    It means your complete path would be 
 
     ```php
         $path_to_database_folder . '/StanDatabase'
